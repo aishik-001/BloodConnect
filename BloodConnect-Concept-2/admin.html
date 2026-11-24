@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BloodConnect | Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <h2>✚ BloodConnect</h2>
+        <p class="side-label">ADMIN PANEL</p>
+
+        <a class="active" href="admin.html">▦ Dashboard</a>
+        <a href="index.html">♡ Main Website</a>
+
+        <div class="sidebar-bottom">
+            <p>BloodConnect</p>
+            <small>Admin Dashboard v1.0</small>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h1>Dashboard</h1>
+                <p>Welcome to BloodConnect administration.</p>
+            </div>
+            <button id="refreshBtn">↻ Refresh</button>
+        </header>
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <span>Total Donors</span>
+                <h2 id="totalDonors">0</h2>
+                <p>Registered donors</p>
+            </div>
+
+            <div class="stat-card">
+                <span>Blood Groups</span>
+                <h2 id="totalGroups">0</h2>
+                <p>Different groups represented</p>
+            </div>
+
+            <div class="stat-card">
+                <span>Locations</span>
+                <h2 id="totalLocations">0</h2>
+                <p>Areas represented</p>
+            </div>
+
+        </section>
+
+        <section class="content-card">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Donor Management</h2>
+                    <p>View registered blood donors.</p>
+                </div>
+                <span class="live-label">● LIVE DATA</span>
+            </div>
+
+            <div class="filters">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search name or location..."
+                >
+
+                <select id="bloodFilter">
+                    <option value="">All Blood Groups</option>
+                    <option>A+</option>
+                    <option>A-</option>
+                    <option>B+</option>
+                    <option>B-</option>
+                    <option>AB+</option>
+                    <option>AB-</option>
+                    <option>O+</option>
+                    <option>O-</option>
+                </select>
+
+            </div>
+
+            <p id="statusMessage">Loading donor records...</p>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Donor</th>
+                            <th>Blood Group</th>
+                            <th>Location</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="donorTable">
+                    </tbody>
+                </table>
+            </div>
+
+            <p id="emptyMessage" hidden>
+                No matching donor records found.
+            </p>
+
+        </section>
+
+        <footer>
+            BloodConnect © 2026 | Student Project
+        </footer>
+
+    </main>
+
+    <script src="admin.js"></script>
+</body>
+</html>
