@@ -1,0 +1,678 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BloodConnect | Every Drop Matters</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <header class="topbar">
+
+        <a class="brand" href="#">
+            <span class="brand-mark">✚</span>
+            blood<span>connect</span>
+        </a>
+
+        <nav>
+            <a href="#find">Find donors</a>
+            <a href="#request">Request blood</a>
+            <a href="#how">How it works</a>
+            <a href="#about">About</a>
+            <a href="admin-login.html">Admin Login</a>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <!-- HERO SECTION -->
+        <section class="hero">
+
+            <div class="hero-copy">
+
+                <div class="eyebrow">
+                    <span class="pulse"></span>
+                    CONNECTING PEOPLE. SAVING LIVES.
+                </div>
+
+                <h1>
+                    Someone out there<br>
+                    could be your <em>lifeline.</em>
+                </h1>
+
+                <p class="hero-text">
+                    Find blood donors near you, or step forward and become
+                    the reason someone gets another chance.
+                </p>
+
+                <div class="hero-actions">
+
+                    <a class="primary-btn" href="#find">
+                        Find a donor <span>→</span>
+                    </a>
+
+                    <a class="text-btn" href="#how">
+                        See how it works <span>↗</span>
+                    </a>
+
+                </div>
+
+                <div class="hero-note">
+
+                    <div class="avatar-stack">
+                        <i>R</i>
+                        <i>A</i>
+                        <i>S</i>
+                        <b>+</b>
+                    </div>
+
+                    <span>
+                        <strong>One community.</strong>
+                        Countless second chances.
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="hero-art">
+
+                <div class="orbit orbit-one"></div>
+                <div class="orbit orbit-two"></div>
+
+                <div class="heart-card">
+
+                    <div class="heart-symbol">♥</div>
+
+                    <div class="heart-caption">
+                        A little help<br>
+                        goes a long way.
+                    </div>
+
+                </div>
+
+                <div class="floating-tag tag-top">
+                    <span class="tag-dot"></span>
+                    Donors make a difference
+                </div>
+
+                <div class="floating-tag tag-bottom">
+                    <strong>01</strong>
+                    <span>
+                        Every drop<br>
+                        counts.
+                    </span>
+                </div>
+
+                <div class="art-cross">✚</div>
+
+            </div>
+
+        </section>
+
+        <!-- STATISTICS SECTION -->
+        <section class="stats" id="about">
+
+            <div>
+                <strong>01</strong>
+                <span>One simple mission</span>
+            </div>
+
+            <div>
+                <strong>24/7</strong>
+                <span>Help starts with a connection</span>
+            </div>
+
+            <div>
+                <strong>100%</strong>
+                <span>Community powered</span>
+            </div>
+
+            <p>
+                Small acts. <b>Life-changing impact.</b>
+            </p>
+
+        </section>
+
+        <!-- FIND DONORS SECTION -->
+        <section class="section find-section" id="find">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <div class="eyebrow">
+                        THE RIGHT MATCH IS CLOSER THAN YOU THINK
+                    </div>
+
+                    <h2>
+                        Find a blood donor<span>.</span>
+                    </h2>
+
+                </div>
+
+                <p>
+                    Search the demo directory by blood group and location.
+                    Contact details shown here are sample data only.
+                </p>
+
+            </div>
+
+            <div class="search-panel">
+
+                <label>
+                    Blood group
+
+                    <select id="bloodFilter">
+                        <option value="">All blood groups</option>
+                        <option>A+</option>
+                        <option>A-</option>
+                        <option>B+</option>
+                        <option>B-</option>
+                        <option>AB+</option>
+                        <option>AB-</option>
+                        <option>O+</option>
+                        <option>O-</option>
+                    </select>
+                </label>
+
+                <label>
+                    Location
+
+                    <input
+                        id="locationFilter"
+                        type="text"
+                        placeholder="Enter city, area or PIN code"
+                    >
+                </label>
+
+                <button class="primary-btn search-btn" id="searchBtn">
+                    Search donors <span>→</span>
+                </button>
+
+            </div>
+
+            <div class="results-top">
+
+                <span id="resultCount">
+                    3 donors in the demo directory
+                </span>
+
+                <span class="demo-label">
+                    DEMO PROFILES
+                </span>
+
+            </div>
+
+            <div class="donor-grid" id="donorGrid">
+
+                <article class="donor-card">
+
+                    <div class="donor-head">
+                        <div class="donor-avatar">AM</div>
+                        <span class="blood-pill">O+</span>
+                    </div>
+
+                    <h3>Arjun Mondal</h3>
+
+                    <p class="place">
+                        Berhampore, West Bengal
+                    </p>
+
+                    <div class="donor-meta">
+                        <span>● Sample profile</span>
+                        <span>Recently listed</span>
+                    </div>
+
+                </article>
+
+                <article class="donor-card">
+
+                    <div class="donor-head">
+                        <div class="donor-avatar peach">SR</div>
+                        <span class="blood-pill">B+</span>
+                    </div>
+
+                    <h3>Shreyasi Ray</h3>
+
+                    <p class="place">
+                        Kolkata, West Bengal
+                    </p>
+
+                    <div class="donor-meta">
+                        <span>● Sample profile</span>
+                        <span>Recently listed</span>
+                    </div>
+
+                </article>
+
+                <article class="donor-card">
+
+                    <div class="donor-head">
+                        <div class="donor-avatar lilac">DK</div>
+                        <span class="blood-pill">A+</span>
+                    </div>
+
+                    <h3>Devottam Kanji</h3>
+
+                    <p class="place">
+                        Krishnanagar, West Bengal
+                    </p>
+
+                    <div class="donor-meta">
+                        <span>● Sample profile</span>
+                        <span>Recently listed</span>
+                    </div>
+
+                </article>
+
+            </div>
+
+            <p class="empty-state" id="emptyState" hidden>
+                No matching sample donors.
+                Try another blood group or location.
+            </p>
+
+        </section>
+
+        <!-- BLOOD REQUEST SECTION -->
+        <section class="section request-section" id="request">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <div class="eyebrow">
+                        WHEN SOMEONE NEEDS HELP
+                    </div>
+
+                    <h2>
+                        Request blood<span>.</span>
+                    </h2>
+
+                </div>
+
+                <p>
+                    Submit a sample blood request through our
+                    BloodConnect demo platform.
+                </p>
+
+            </div>
+
+            <form class="request-form" id="bloodRequestForm">
+
+                <h3>Blood request details</h3>
+
+                <label>
+                    Requester's name
+
+                    <input
+                        type="text"
+                        name="requesterName"
+                        placeholder="Enter requester's name"
+                        required
+                        maxlength="80"
+                    >
+                </label>
+
+                <div class="form-row">
+
+                    <label>
+                        Required blood group
+
+                        <select name="bloodGroup" required>
+                            <option value="">Select blood group</option>
+                            <option>A+</option>
+                            <option>A-</option>
+                            <option>B+</option>
+                            <option>B-</option>
+                            <option>AB+</option>
+                            <option>AB-</option>
+                            <option>O+</option>
+                            <option>O-</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        Units required
+
+                        <input
+                            type="number"
+                            name="units"
+                            min="1"
+                            max="20"
+                            placeholder="e.g. 2"
+                            required
+                        >
+                    </label>
+
+                </div>
+
+                <label>
+                    Hospital / general location
+
+                    <input
+                        type="text"
+                        name="location"
+                        placeholder="Enter hospital or city"
+                        required
+                        maxlength="150"
+                    >
+                </label>
+
+                <label>
+                    Additional message
+
+                    <textarea
+                        name="message"
+                        rows="4"
+                        maxlength="500"
+                        placeholder="Enter any additional information"
+                    ></textarea>
+                </label>
+
+                <button class="primary-btn" type="submit">
+                    Submit blood request <span>→</span>
+                </button>
+
+                <p
+                    id="requestMessage"
+                    class="form-message"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+
+                <small>
+                    Student demo only. Requests are not sent to hospitals
+                    or verified donors. For actual blood requirements,
+                    contact a hospital or licensed blood bank.
+                    All donor information must be independently verified.
+                </small>
+
+            </form>
+
+        </section>
+
+        <!-- HOW IT WORKS SECTION -->
+        <section class="how-section" id="how">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <div class="eyebrow">
+                        SIMPLE. HUMAN. DIRECT.
+                    </div>
+
+                    <h2>
+                        Help is three steps away<span>.</span>
+                    </h2>
+
+                </div>
+
+            </div>
+
+            <div class="steps">
+
+                <article>
+
+                    <span>01</span>
+
+                    <h3>Search nearby</h3>
+
+                    <p>
+                        Choose the blood group and enter the area
+                        where help is needed.
+                    </p>
+
+                </article>
+
+                <article>
+
+                    <span>02</span>
+
+                    <h3>Find a match</h3>
+
+                    <p>
+                        Review matching donor listings and confirm
+                        details through a safe channel.
+                    </p>
+
+                </article>
+
+                <article>
+
+                    <span>03</span>
+
+                    <h3>Connect & help</h3>
+
+                    <p>
+                        Reach out, verify availability, and coordinate
+                        through the appropriate medical facility.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- DONOR REGISTRATION SECTION -->
+        <section class="register-section" id="register">
+
+            <div class="register-copy">
+
+                <div class="eyebrow">
+                    BE SOMEONE'S REASON TO HOPE
+                </div>
+
+                <h2>
+                    Your one step<br>
+                    could mean <em>everything.</em>
+                </h2>
+
+                <p>
+                    Register your interest in donating blood.
+                    This is a student demo platform.
+                </p>
+
+            </div>
+
+            <form class="register-form" id="donorForm">
+
+                <h3>Join the donor community</h3>
+
+                <div class="form-row">
+
+                    <label>
+                        Full name
+
+                        <input
+                            required
+                            name="name"
+                            placeholder="Your name"
+                        >
+                    </label>
+
+                    <label>
+                        Blood group
+
+                        <select required name="blood">
+                            <option value="">Select</option>
+                            <option>A+</option>
+                            <option>A-</option>
+                            <option>B+</option>
+                            <option>B-</option>
+                            <option>AB+</option>
+                            <option>AB-</option>
+                            <option>O+</option>
+                            <option>O-</option>
+                        </select>
+                    </label>
+
+                </div>
+
+                <label>
+                    City / area
+
+                    <input
+                        required
+                        name="location"
+                        placeholder="e.g. Berhampore"
+                    >
+                </label>
+
+                <label>
+                    Phone number
+
+                    <input
+                        required
+                        name="phone"
+                        type="tel"
+                        placeholder="Demo contact number only"
+                    >
+                </label>
+
+                <button class="primary-btn" type="submit">
+                    Register interest <span>→</span>
+                </button>
+
+                <p
+                    class="form-message"
+                    id="formMessage"
+                    role="status"
+                ></p>
+
+                <small>
+                    Demo only: do not enter real personal information.
+                </small>
+
+            </form>
+
+        </section>
+
+        <!-- SAFETY INFORMATION SECTION -->
+        <section class="section safety-section" id="safety">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <div class="section-tag">
+                        IMPORTANT INFORMATION
+                    </div>
+
+                    <h2>Your Safety Comes First</h2>
+
+                </div>
+
+                <p>
+                    Please follow these guidelines before arranging
+                    blood donation.
+                </p>
+
+            </div>
+
+            <div class="safety-grid">
+
+                <div class="safety-card">
+
+                    <span class="safety-icon">✓</span>
+
+                    <h3>Verify Donor Details</h3>
+
+                    <p>
+                        Donor information displayed on BloodConnect is
+                        for demonstration purposes. Verify all details
+                        independently before making contact.
+                    </p>
+
+                </div>
+
+                <div class="safety-card">
+
+                    <span class="safety-icon">✚</span>
+
+                    <h3>Contact Hospitals</h3>
+
+                    <p>
+                        Always consult a hospital or licensed blood bank
+                        for actual blood requirements and donation arrangements.
+                    </p>
+
+                </div>
+
+                <div class="safety-card">
+
+                    <span class="safety-icon">♡</span>
+
+                    <h3>Medical Eligibility</h3>
+
+                    <p>
+                        A qualified medical professional must determine
+                        donor eligibility and blood compatibility.
+                    </p>
+
+                </div>
+
+                <div class="safety-card">
+
+                    <span class="safety-icon">!</span>
+
+                    <h3>Emergency Situations</h3>
+
+                    <p>
+                        BloodConnect is not an emergency medical service.
+                        Contact a hospital immediately in urgent situations.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <p class="safety-note">
+                BloodConnect is a student demonstration project and does
+                not guarantee donor availability, medical suitability
+                or blood supply.
+            </p>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <a class="brand" href="#">
+            <span class="brand-mark">✚</span>
+            blood<span>connect</span>
+        </a>
+
+        <p>
+            Made with care. Every drop matters.
+        </p>
+
+        <span>
+            © 2026 BloodConnect · Student project prototype
+        </span>
+
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #101d35, #243b5b);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 430px;
+}
+
+.back-link {
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.login-card {
+    background: #ffffff;
+    padding: 40px 32px;
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+}
+
+.logo {
+    font-size: 42px;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    color: #172b4d;
+    margin-top: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #778397;
+    margin: 8px 0 30px;
+}
+
+label {
+    display: block;
+    color: #27364d;
+    font-weight: bold;
+    margin: 18px 0 8px;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #dce2eb;
+    border-radius: 9px;
+    font-size: 15px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #e34b5b;
+    box-shadow: 0 0 0 3px rgba(227,75,91,0.12);
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    margin-top: 25px;
+    background: #e34b5b;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #c93648;
+}
+
+button:disabled {
+    opacity: 0.65;
+    cursor: wait;
+}
+
+#message {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #d12f40;
+}
+
+.security-note {
+    text-align: center;
+    margin-top: 28px;
+    color: #8792a3;
+    font-size: 12px;
+}
