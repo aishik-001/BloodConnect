@@ -2,13 +2,19 @@
 const express = require("express");
 const session = require("express-session");
 const path = require("path");
+const cors = require("cors");
 require("dotenv").config();
 
 const donorRoutes = require("./routes/donors");
 const adminRoutes = require("./routes/admin");
+const requestRoutes = require("./routes/requests");
 const requireAdmin = require("./middleware/auth");
 
 const app = express();
+app.use(cors({
+    origin: "http://127.0.0.1:3000",
+    credentials: true
+}));
 const PORT = process.env.PORT || 5000;
 
 // Your actual frontend folder
@@ -59,6 +65,9 @@ app.use("/api/admin", adminRoutes);
 
 // Donor routes
 app.use("/api/donors", donorRoutes);
+
+// Blood request routes
+app.use("/api/requests", requestRoutes);
 
 // Protect admin dashboard from direct access
 app.get("/admin.html", requireAdmin, (req, res) => {

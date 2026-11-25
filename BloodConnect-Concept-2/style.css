@@ -1,1 +1,1034 @@
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f8f8f7;color:#18202b;font-family:'DM Sans',sans-serif}a{text-decoration:none;color:inherit}.topbar{height:82px;padding:0 7.5%;display:flex;align-items:center;justify-content:space-between;background:#fff}.brand{font:800 21px Manrope,sans-serif;letter-spacing:-1px}.brand>span:last-child{color:#f05a52}.brand-mark{display:inline-grid;place-items:center;background:#f05a52;color:white;border-radius:9px;width:28px;height:28px;font-size:17px;margin-right:7px}.topbar nav{display:flex;gap:34px;color:#68717c;font-size:14px}.topbar nav a:hover,.text-btn:hover{color:#ed5952}.nav-cta{font-size:13px;font-weight:700;border:1px solid #e4e5e5;padding:12px 17px;border-radius:8px}.nav-cta span{color:#ed5952;margin-left:10px}.hero{min-height:550px;padding:85px 10% 65px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;overflow:hidden;background:#f2f3f1}.eyebrow{font-size:10px;letter-spacing:1.8px;font-weight:800;color:#e65b54}.pulse{display:inline-block;width:7px;height:7px;background:#ed625a;border-radius:50%;margin:0 8px 1px 0;box-shadow:0 0 0 5px #f8deda}.hero h1,.register-copy h2{font:800 clamp(42px,5vw,66px)/1.1 Manrope,sans-serif;letter-spacing:-3px;margin:23px 0 18px}.hero h1 em,.register-copy em{font-style:normal;color:#ed5b54}.hero-text{max-width:440px;color:#69727b;line-height:1.8;font-size:15px}.hero-actions{display:flex;align-items:center;gap:25px;margin-top:30px}.primary-btn{display:inline-flex;align-items:center;justify-content:center;gap:22px;border:0;border-radius:7px;background:#ed5b54;color:#fff;padding:15px 20px;font-weight:700;font-size:13px;cursor:pointer;transition:.2s}.primary-btn:hover{background:#d94842;transform:translateY(-2px)}.text-btn{font-size:13px;font-weight:700}.text-btn span{color:#ed5b54;margin-left:7px}.hero-note{display:flex;align-items:center;gap:14px;margin-top:45px;color:#858b91;font-size:11px}.hero-note strong{color:#343c45}.avatar-stack{display:flex}.avatar-stack i,.avatar-stack b{width:27px;height:27px;border-radius:50%;border:2px solid #f2f3f1;background:#e8c5b5;display:grid;place-items:center;font-style:normal;font-size:9px;color:#55413a;margin-left:-6px}.avatar-stack i:first-child{margin-left:0;background:#c5d5d0}.avatar-stack i:nth-child(2){background:#e9d2a7}.avatar-stack b{background:#ed5b54;color:#fff}.hero-art{height:370px;position:relative;display:grid;place-items:center}.orbit{position:absolute;border:1px solid #dedfdb;border-radius:50%;width:340px;height:340px}.orbit-two{width:270px;height:270px;border-style:dashed}.heart-card{width:205px;height:230px;background:#ed5b54;border-radius:48% 48% 44% 44%;transform:rotate(-8deg);box-shadow:0 25px 55px #e85a4e40;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;z-index:2}.heart-symbol{font-size:88px;line-height:1;text-shadow:0 7px 0 #cf4842}.heart-caption{text-align:center;font:700 14px/1.4 Manrope;margin-top:12px}.floating-tag{position:absolute;z-index:3;background:#fff;padding:13px 16px;border-radius:9px;box-shadow:0 12px 35px #18202b12;font-size:11px;color:#69727b}.tag-top{top:48px;right:0}.tag-dot{display:inline-block;width:7px;height:7px;background:#60b68b;border-radius:50%;margin-right:7px}.tag-bottom{bottom:38px;left:5px;display:flex;align-items:center;gap:12px}.tag-bottom strong{font:800 25px Manrope;color:#ed5b54}.tag-bottom span{line-height:1.4}.art-cross{position:absolute;right:25px;bottom:65px;color:#f4aaa4;font-size:35px}.stats{padding:30px 10%;background:#fff;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #eee}.stats div{display:flex;flex-direction:column;gap:5px}.stats strong{font:800 24px Manrope;color:#ed5b54}.stats span,.stats p{font-size:11px;color:#8a9096}.stats p{font-size:13px}.stats p b{color:#303944}.section{padding:95px 10%}.section-heading{display:flex;align-items:end;justify-content:space-between;gap:35px;margin-bottom:35px}.section-heading h2,.how-section h2{font:800 38px Manrope;letter-spacing:-1.8px;margin:12px 0 0}.section-heading h2 span,.how-section h2 span{color:#ed5b54}.section-heading>p{max-width:330px;color:#828991;font-size:12px;line-height:1.7}.search-panel{background:#fff;border:1px solid #e9e9e6;padding:19px;border-radius:12px;display:grid;grid-template-columns:1fr 1.3fr auto;gap:15px;align-items:end}.search-panel label,.register-form label{display:flex;flex-direction:column;gap:8px;font-size:11px;font-weight:700;color:#555e68}.search-panel input,.search-panel select,.register-form input,.register-form select{width:100%;padding:13px;border:1px solid #e7e8e7;border-radius:6px;background:#fff;font:13px 'DM Sans';color:#26303a;outline:none}.search-panel input:focus,.search-panel select:focus,.register-form input:focus,.register-form select:focus{border-color:#ed8b85}.search-btn{height:43px;white-space:nowrap}.results-top{display:flex;justify-content:space-between;margin:25px 0 14px;font-size:12px;color:#737b83}.demo-label{font-size:9px;letter-spacing:1.3px;color:#e15d56;font-weight:800}.donor-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.donor-card{background:#fff;border:1px solid #e9e9e6;border-radius:10px;padding:20px}.donor-head{display:flex;justify-content:space-between;align-items:center}.donor-avatar{width:43px;height:43px;border-radius:50%;display:grid;place-items:center;background:#dce8e1;color:#456858;font-weight:800;font-size:12px}.donor-avatar.peach{background:#f6e2d9;color:#a75d4c}.donor-avatar.lilac{background:#e8e3f1;color:#75658f}.blood-pill{background:#fff0ee;color:#e45750;padding:7px 10px;border-radius:5px;font-size:11px;font-weight:800}.donor-card h3{font:700 16px Manrope;margin:17px 0 5px}.place{font-size:12px;color:#858c92;margin:0}.donor-meta{border-top:1px solid #f0f0ee;margin-top:18px;padding-top:13px;display:flex;justify-content:space-between;font-size:9px;color:#8b9297}.donor-meta span:first-child{color:#5c9d7c}.empty-state{padding:25px;text-align:center;color:#777}.how-section{background:#202b37;color:#fff;padding:85px 10%}.how-section .eyebrow{color:#ff918a}.how-section h2{margin-bottom:40px}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:35px}.steps article{border-top:1px solid #52606b;padding-top:20px}.steps article>span{font:800 25px Manrope;color:#ff8179}.steps h3{font:700 17px Manrope;margin:25px 0 10px}.steps p{font-size:12px;line-height:1.8;color:#aeb7be;max-width:260px}.register-section{padding:90px 10%;display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;background:#f2f3f1}.register-copy h2{font-size:48px}.register-copy p{max-width:350px;color:#7b838a;line-height:1.8;font-size:13px}.register-form{background:#fff;border:1px solid #e9e9e6;border-radius:12px;padding:28px;display:flex;flex-direction:column;gap:16px}.register-form h3{font:800 19px Manrope;margin:0 0 5px}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}.register-form .primary-btn{width:100%;margin-top:3px}.register-form small{font-size:9px;color:#999}.form-message{font-size:12px;color:#4b946d;margin:0}footer{padding:27px 10%;background:#fff;display:flex;align-items:center;justify-content:space-between}footer p,footer>span{font-size:10px;color:#92989d}@media(max-width:800px){.topbar{padding:0 5%}.topbar nav{display:none}.hero{padding:65px 7%;grid-template-columns:1fr}.hero-art{height:300px;margin-top:20px}.stats{padding:25px 7%;flex-wrap:wrap;gap:20px}.stats p{width:100%;margin:0}.section,.how-section,.register-section{padding:65px 7%}.section-heading{display:block}.section-heading>p{margin-top:15px}.register-section{grid-template-columns:1fr;gap:30px}.donor-grid{grid-template-columns:1fr 1fr}}@media(max-width:520px){.topbar{height:70px}.nav-cta{font-size:11px;padding:10px}.hero h1{font-size:44px;letter-spacing:-2px}.hero-art{transform:scale(.88);margin-left:-15px;margin-right:-15px}.search-panel{grid-template-columns:1fr}.search-btn{width:100%}.donor-grid,.steps{grid-template-columns:1fr}.section-heading h2,.how-section h2{font-size:31px}.register-copy h2{font-size:42px}.form-row{grid-template-columns:1fr}footer{gap:12px;flex-wrap:wrap}footer p{display:none}}
+
+/* =========================================
+   BLOODCONNECT - COMPLETE STYLESHEET
+   ========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 20px;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+    background: #f8f8f7;
+    color: #18202b;
+    font-family: 'DM Sans', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+/* NAVIGATION */
+
+.topbar {
+    width: 100%;
+    min-height: 82px;
+    padding: 15px 7.5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    background: #fff;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    font: 800 21px Manrope, sans-serif;
+    letter-spacing: -1px;
+}
+
+.brand > span:last-child {
+    color: #f05a52;
+}
+
+.brand-mark {
+    display: inline-grid;
+    place-items: center;
+    background: #f05a52;
+    color: white;
+    border-radius: 9px;
+    width: 28px;
+    height: 28px;
+    font-size: 17px;
+    margin-right: 7px;
+}
+
+.topbar nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 25px;
+    color: #68717c;
+    font-size: 14px;
+}
+
+.topbar nav a {
+    white-space: nowrap;
+}
+
+.topbar nav a:hover,
+.text-btn:hover {
+    color: #ed5952;
+}
+
+.nav-cta {
+    font-size: 13px;
+    font-weight: 700;
+    border: 1px solid #e4e5e5;
+    padding: 12px 17px;
+    border-radius: 8px;
+}
+
+.nav-cta span {
+    color: #ed5952;
+    margin-left: 10px;
+}
+
+/* HOMEPAGE HERO */
+
+.hero {
+    min-height: 550px;
+    padding: 75px 8%;
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: center;
+    gap: 40px;
+    overflow: hidden;
+    background: #f2f3f1;
+}
+
+.hero-copy {
+    width: 100%;
+    max-width: 620px;
+    min-width: 0;
+    justify-self: start;
+    text-align: left;
+}
+
+.eyebrow {
+    font-size: 10px;
+    letter-spacing: 1.8px;
+    font-weight: 800;
+    color: #e65b54;
+}
+
+.pulse {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: #ed625a;
+    border-radius: 50%;
+    margin: 0 8px 1px 0;
+    box-shadow: 0 0 0 5px #f8deda;
+}
+
+.hero h1,
+.register-copy h2 {
+    font: 800 clamp(42px, 5vw, 66px)/1.1 Manrope, sans-serif;
+    letter-spacing: -3px;
+    margin: 23px 0 18px;
+}
+
+.hero h1 {
+    max-width: 620px;
+    text-align: left;
+}
+
+.hero h1 em,
+.register-copy em {
+    font-style: normal;
+    color: #ed5b54;
+}
+
+.hero-text {
+    max-width: 440px;
+    color: #69727b;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.primary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    border: 0;
+    border-radius: 7px;
+    background: #ed5b54;
+    color: #fff;
+    padding: 15px 20px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.primary-btn:hover {
+    background: #d94842;
+    transform: translateY(-2px);
+}
+
+.hero-actions .primary-btn {
+    min-width: 190px;
+    white-space: nowrap;
+}
+
+.text-btn {
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.text-btn span {
+    color: #ed5b54;
+    margin-left: 7px;
+}
+
+.hero-note {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 45px;
+    color: #858b91;
+    font-size: 11px;
+}
+
+.hero-note strong {
+    color: #343c45;
+}
+
+.avatar-stack {
+    display: flex;
+}
+
+.avatar-stack i,
+.avatar-stack b {
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    border: 2px solid #f2f3f1;
+    background: #e8c5b5;
+    display: grid;
+    place-items: center;
+    font-style: normal;
+    font-size: 9px;
+    color: #55413a;
+    margin-left: -6px;
+}
+
+.avatar-stack i:first-child {
+    margin-left: 0;
+    background: #c5d5d0;
+}
+
+.avatar-stack i:nth-child(2) {
+    background: #e9d2a7;
+}
+
+.avatar-stack b {
+    background: #ed5b54;
+    color: #fff;
+}
+
+/* HERO ILLUSTRATION */
+
+.hero-art {
+    height: 370px;
+    width: 100%;
+    min-width: 0;
+    position: relative;
+    display: grid;
+    place-items: center;
+    margin: 0;
+}
+
+.orbit {
+    position: absolute;
+    border: 1px solid #dedfdb;
+    border-radius: 50%;
+    width: 340px;
+    height: 340px;
+}
+
+.orbit-two {
+    width: 270px;
+    height: 270px;
+    border-style: dashed;
+}
+
+.heart-card {
+    width: 205px;
+    height: 230px;
+    background: #ed5b54;
+    border-radius: 48% 48% 44% 44%;
+    transform: rotate(-8deg);
+    box-shadow: 0 25px 55px #e85a4e40;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    z-index: 2;
+}
+
+.heart-symbol {
+    font-size: 88px;
+    line-height: 1;
+    text-shadow: 0 7px 0 #cf4842;
+}
+
+.heart-caption {
+    text-align: center;
+    font: 700 14px/1.4 Manrope, sans-serif;
+    margin-top: 12px;
+}
+
+.floating-tag {
+    position: absolute;
+    z-index: 3;
+    background: #fff;
+    padding: 13px 16px;
+    border-radius: 9px;
+    box-shadow: 0 12px 35px #18202b12;
+    font-size: 11px;
+    color: #69727b;
+}
+
+.tag-top {
+    top: 48px;
+    right: 0;
+}
+
+.tag-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: #60b68b;
+    border-radius: 50%;
+    margin-right: 7px;
+}
+
+.tag-bottom {
+    bottom: 38px;
+    left: 5px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.tag-bottom strong {
+    font: 800 25px Manrope, sans-serif;
+    color: #ed5b54;
+}
+
+.tag-bottom span {
+    line-height: 1.4;
+}
+
+.art-cross {
+    position: absolute;
+    right: 25px;
+    bottom: 65px;
+    color: #f4aaa4;
+    font-size: 35px;
+}
+
+/* STATS */
+
+.stats {
+    padding: 30px 10%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    gap: 20px;
+}
+
+.stats div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.stats strong {
+    font: 800 24px Manrope, sans-serif;
+    color: #ed5b54;
+}
+
+.stats span,
+.stats p {
+    font-size: 11px;
+    color: #8a9096;
+}
+
+.stats p {
+    font-size: 13px;
+}
+
+.stats p b {
+    color: #303944;
+}
+
+/* GENERAL SECTIONS */
+
+.section {
+    padding: 95px 10%;
+}
+
+.section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 35px;
+    margin-bottom: 35px;
+}
+
+.section-heading h2,
+.how-section h2 {
+    font: 800 38px Manrope, sans-serif;
+    letter-spacing: -1.8px;
+    margin: 12px 0 0;
+}
+
+.section-heading h2 span,
+.how-section h2 span {
+    color: #ed5b54;
+}
+
+.section-heading > p {
+    max-width: 330px;
+    color: #828991;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+/* DONOR SEARCH */
+
+.search-panel {
+    background: #fff;
+    border: 1px solid #e9e9e6;
+    padding: 19px;
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: 1fr 1.3fr auto;
+    gap: 15px;
+    align-items: end;
+}
+
+.search-panel label,
+.register-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #555e68;
+}
+
+.search-panel input,
+.search-panel select,
+.register-form input,
+.register-form select {
+    width: 100%;
+    min-width: 0;
+    padding: 13px;
+    border: 1px solid #e7e8e7;
+    border-radius: 6px;
+    background: #fff;
+    font: 13px 'DM Sans', sans-serif;
+    color: #26303a;
+    outline: none;
+}
+
+.search-panel input:focus,
+.search-panel select:focus,
+.register-form input:focus,
+.register-form select:focus {
+    border-color: #ed8b85;
+}
+
+.search-btn {
+    height: 43px;
+    white-space: nowrap;
+}
+
+.results-top {
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 0 14px;
+    font-size: 12px;
+    color: #737b83;
+    gap: 12px;
+}
+
+.demo-label {
+    font-size: 9px;
+    letter-spacing: 1.3px;
+    color: #e15d56;
+    font-weight: 800;
+}
+
+/* DONOR CARDS */
+
+.donor-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.donor-card {
+    background: #fff;
+    border: 1px solid #e9e9e6;
+    border-radius: 10px;
+    padding: 20px;
+    min-width: 0;
+}
+
+.donor-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.donor-avatar {
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #dce8e1;
+    color: #456858;
+    font-weight: 800;
+    font-size: 12px;
+}
+
+.donor-avatar.peach {
+    background: #f6e2d9;
+    color: #a75d4c;
+}
+
+.donor-avatar.lilac {
+    background: #e8e3f1;
+    color: #75658f;
+}
+
+.blood-pill {
+    background: #fff0ee;
+    color: #e45750;
+    padding: 7px 10px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.donor-card h3 {
+    font: 700 16px Manrope, sans-serif;
+    margin: 17px 0 5px;
+}
+
+.place {
+    font-size: 12px;
+    color: #858c92;
+    margin: 0;
+}
+
+.donor-meta {
+    border-top: 1px solid #f0f0ee;
+    margin-top: 18px;
+    padding-top: 13px;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 9px;
+    color: #8b9297;
+}
+
+.donor-meta span:first-child {
+    color: #5c9d7c;
+}
+
+.empty-state {
+    padding: 25px;
+    text-align: center;
+    color: #777;
+}
+
+/* HOW IT WORKS */
+
+.how-section {
+    background: #202b37;
+    color: #fff;
+    padding: 85px 10%;
+}
+
+.how-section .eyebrow {
+    color: #ff918a;
+}
+
+.how-section h2 {
+    margin-bottom: 40px;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 35px;
+}
+
+.steps article {
+    border-top: 1px solid #52606b;
+    padding-top: 20px;
+}
+
+.steps article > span {
+    font: 800 25px Manrope, sans-serif;
+    color: #ff8179;
+}
+
+.steps h3 {
+    font: 700 17px Manrope, sans-serif;
+    margin: 25px 0 10px;
+}
+
+.steps p {
+    font-size: 12px;
+    line-height: 1.8;
+    color: #aeb7be;
+    max-width: 260px;
+}
+
+/* DONOR REGISTRATION */
+
+.register-section {
+    padding: 90px 10%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 70px;
+    align-items: center;
+    background: #f2f3f1;
+}
+
+.register-copy h2 {
+    font-size: 48px;
+}
+
+.register-copy p {
+    max-width: 350px;
+    color: #7b838a;
+    line-height: 1.8;
+    font-size: 13px;
+}
+
+.register-form {
+    background: #fff;
+    border: 1px solid #e9e9e6;
+    border-radius: 12px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 0;
+}
+
+.register-form h3 {
+    font: 800 19px Manrope, sans-serif;
+    margin: 0 0 5px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.register-form .primary-btn {
+    width: 100%;
+    margin-top: 3px;
+}
+
+.register-form small {
+    font-size: 9px;
+    color: #999;
+}
+
+.form-message {
+    font-size: 12px;
+    color: #4b946d;
+    margin: 0;
+}
+
+/* BLOOD REQUEST */
+
+.request-section {
+    padding-top: 90px;
+    padding-bottom: 100px;
+}
+
+.request-form {
+    max-width: 650px;
+    width: 100%;
+    margin: 45px auto 0;
+    padding: 38px;
+    background: #fff;
+    border: 1px solid #eee5e5;
+    border-radius: 20px;
+    box-shadow: 0 15px 45px rgba(80, 20, 20, 0.07);
+}
+
+.request-form h3 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 28px;
+    color: #222;
+}
+
+.request-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+}
+
+.request-form input,
+.request-form select,
+.request-form textarea {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 14px 15px;
+    border: 1px solid #e5dddd;
+    border-radius: 10px;
+    outline: none;
+    background: #fffafa;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: #333;
+    transition: 0.25s ease;
+}
+
+.request-form input:focus,
+.request-form select:focus,
+.request-form textarea:focus {
+    border-color: #d94b55;
+    box-shadow: 0 0 0 3px rgba(217, 75, 85, 0.10);
+}
+
+.request-form textarea {
+    resize: vertical;
+}
+
+.request-form .primary-btn {
+    width: 100%;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.request-form small {
+    display: block;
+    margin-top: 18px;
+    line-height: 1.7;
+    color: #888;
+    font-size: 12px;
+}
+
+.request-form .form-message {
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+/* SAFETY INFORMATION */
+
+.safety-section {
+    padding: 80px 8%;
+    background: #fff8f8;
+}
+
+.safety-section .section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.safety-section .section-heading h2 {
+    margin: 12px 0;
+}
+
+.safety-section .section-heading > p {
+    max-width: 500px;
+    color: #777;
+}
+
+.section-tag {
+    color: #df4050;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.safety-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.safety-card {
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+    border: 1px solid #f0e4e4;
+    min-width: 0;
+}
+
+.safety-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    background: #fff0f1;
+    color: #df4050;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.safety-card h3 {
+    margin-bottom: 10px;
+    color: #252525;
+    font-family: 'Manrope', sans-serif;
+}
+
+.safety-card p {
+    color: #777;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.safety-note {
+    max-width: 1000px;
+    margin: 25px auto 0;
+    text-align: center;
+    color: #a33b45;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 27px 10%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+footer p,
+footer > span {
+    font-size: 10px;
+    color: #92989d;
+}
+
+/* TABLET RESPONSIVENESS */
+
+@media (max-width: 800px) {
+
+    .topbar {
+        padding: 15px 5%;
+    }
+
+    .topbar nav {
+        display: none;
+    }
+
+    .hero {
+        padding: 65px 7%;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 25px;
+    }
+
+    .hero-copy {
+        max-width: 100%;
+    }
+
+    .hero-art {
+        height: 300px;
+        margin-top: 10px;
+    }
+
+    .stats {
+        padding: 25px 7%;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .stats p {
+        width: 100%;
+        margin: 0;
+    }
+
+    .section,
+    .how-section,
+    .register-section {
+        padding: 65px 7%;
+    }
+
+    .section-heading {
+        display: block;
+    }
+
+    .section-heading > p {
+        margin-top: 15px;
+    }
+
+    .register-section {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .donor-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .request-section {
+        padding-top: 65px;
+        padding-bottom: 70px;
+    }
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 600px) {
+
+    .topbar {
+        min-height: 70px;
+    }
+
+    .hero {
+        padding: 50px 6%;
+    }
+
+    .hero h1 {
+        font-size: 44px;
+        letter-spacing: -2px;
+    }
+
+    .hero-art {
+        height: 280px;
+        transform: scale(0.88);
+        margin: 0 -15px;
+    }
+
+    .hero-actions {
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    .search-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .search-btn {
+        width: 100%;
+    }
+
+    .donor-grid,
+    .steps,
+    .safety-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading h2,
+    .how-section h2 {
+        font-size: 31px;
+    }
+
+    .register-copy h2 {
+        font-size: 42px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .request-section {
+        padding-top: 55px;
+        padding-bottom: 60px;
+    }
+
+    .request-form {
+        padding: 23px 18px;
+        margin-top: 30px;
+    }
+
+    .request-form h3 {
+        font-size: 21px;
+    }
+
+    .safety-section {
+        padding: 55px 6%;
+    }
+
+    footer {
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    footer p {
+        display: none;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .request-form {
+        padding: 20px 14px;
+    }
+}

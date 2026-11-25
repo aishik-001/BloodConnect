@@ -134,7 +134,7 @@ button:hover {
     font-size: 13px;
 }
 
-/* Donor table */
+/* Donor management */
 
 .content-card {
     background: white;
@@ -164,6 +164,8 @@ button:hover {
     font-weight: bold;
 }
 
+/* Search and filters */
+
 .filters {
     display: flex;
     gap: 15px;
@@ -189,6 +191,8 @@ button:hover {
     border-color: #e84959;
 }
 
+/* Donor table */
+
 .table-container {
     overflow-x: auto;
 }
@@ -196,7 +200,7 @@ button:hover {
 table {
     width: 100%;
     border-collapse: collapse;
-    min-width: 550px;
+    min-width: 850px;
 }
 
 th {
@@ -225,6 +229,63 @@ td {
     border-radius: 20px;
     font-weight: bold;
     font-size: 12px;
+}
+
+/* Donor status */
+
+.status-badge {
+    display: inline-block;
+    padding: 7px 11px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status-badge.pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-badge.approved {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-badge.deactivated {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Management buttons */
+
+.action-buttons {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.action-buttons button {
+    padding: 8px 11px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.approve-btn {
+    background: #d4edda;
+    color: #155724;
+}
+
+.approve-btn:hover {
+    background: #b9e6c5;
+}
+
+.reject-btn {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.reject-btn:hover {
+    background: #efb9bf;
 }
 
 #statusMessage,
@@ -306,4 +367,27 @@ footer {
         align-items: flex-start;
         flex-direction: column;
     }
+
+    .content-card {
+        padding: 18px;
+    }
+}
+.topbar-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.logout-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.logout-btn:hover {
+    background: #b02a37;
 }

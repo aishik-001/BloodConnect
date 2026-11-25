@@ -1,13 +1,15 @@
 
 function requireAdmin(req, res, next) {
-    if (req.session && req.session.isAdmin === true) {
-        return next();
+    if (!req.session || req.session.isAdmin !== true) {
+        return res.redirect("/admin-login.html");
     }
 
-    return res.status(401).json({
-        success: false,
-        message: "Admin login required."
-    });
+    // Prevent browser from caching protected admin pages
+    res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, private");
+    res.setHeader("Pragma", "no-cache");
+    res.setHeader("Expires", "0");
+
+    next();
 }
 
 module.exports = requireAdmin;

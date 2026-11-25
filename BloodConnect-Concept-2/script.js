@@ -217,3 +217,69 @@ donorForm.addEventListener("submit", async (event) => {
 
 // Load donors when website opens
 loadDonors();
+
+
+// Blood Request Form
+const bloodRequestForm = document.getElementById("bloodRequestForm");
+const requestMessage = document.getElementById("requestMessage");
+
+// Submit blood request
+bloodRequestForm.addEventListener("submit", async (event) => {
+
+    event.preventDefault();
+
+    const formData = new FormData(bloodRequestForm);
+
+    const requestData = {
+        requesterName: formData.get("requesterName").trim(),
+        bloodGroup: formData.get("bloodGroup"),
+        location: formData.get("location").trim(),
+        units: Number(formData.get("units")),
+        message: formData.get("message").trim()
+    };
+
+    requestMessage.textContent = "Submitting your request...";
+    requestMessage.style.color = "#555";
+
+    try {
+
+        const response = await fetch(`${API_URL}/requests`, {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify(requestData)
+
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw new Error(
+                result.message || "Unable to submit request."
+            );
+        }
+
+        requestMessage.textContent =
+            "✓ Blood request submitted successfully!";
+
+        requestMessage.style.color = "green";
+
+        bloodRequestForm.reset();
+
+    } catch (error) {
+
+        requestMessage.textContent =
+            error.message || "Something went wrong.";
+
+        requestMessage.style.color = "red";
+
+        console.error("Blood request error:", error);
+
+    }
+
+});
+

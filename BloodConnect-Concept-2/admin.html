@@ -1,12 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BloodConnect | Admin Dashboard</title>
     <link rel="stylesheet" href="admin.css">
 </head>
+
 <body>
 
     <aside class="sidebar">
@@ -29,7 +30,11 @@
                 <h1>Dashboard</h1>
                 <p>Welcome to BloodConnect administration.</p>
             </div>
-            <button id="refreshBtn">↻ Refresh</button>
+
+            <div class="topbar-actions">
+                <button id="refreshBtn">↻ Refresh</button>
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+            </div>
         </header>
 
         <section class="stats-grid">
@@ -59,18 +64,15 @@
             <div class="section-heading">
                 <div>
                     <h2>Donor Management</h2>
-                    <p>View registered blood donors.</p>
+                    <p>View, approve and manage registered blood donors.</p>
                 </div>
+
                 <span class="live-label">● LIVE DATA</span>
             </div>
 
             <div class="filters">
 
-                <input
-                    type="text"
-                    id="searchInput"
-                    placeholder="Search name or location..."
-                >
+                <input type="text" id="searchInput" placeholder="Search name or location...">
 
                 <select id="bloodFilter">
                     <option value="">All Blood Groups</option>
@@ -86,9 +88,12 @@
 
             </div>
 
-            <p id="statusMessage">Loading donor records...</p>
+            <p id="statusMessage" role="status">
+                Loading donor records...
+            </p>
 
             <div class="table-container">
+
                 <table>
                     <thead>
                         <tr>
@@ -96,12 +101,15 @@
                             <th>Blood Group</th>
                             <th>Location</th>
                             <th>Phone</th>
+                            <th>Status</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
 
                     <tbody id="donorTable">
                     </tbody>
                 </table>
+
             </div>
 
             <p id="emptyMessage" hidden>
@@ -117,5 +125,7 @@
     </main>
 
     <script src="admin.js"></script>
+
 </body>
+
 </html>

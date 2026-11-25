@@ -15,7 +15,7 @@ const refreshBtn = document.getElementById("refreshBtn");
 
 let allDonors = [];
 
-// Prevent HTML injection when displaying donor data
+// Prevent HTML injection
 function escapeHTML(value) {
     return String(value ?? "").replace(/[&<>"']/g, character => ({
         "&": "&amp;",
@@ -26,7 +26,7 @@ function escapeHTML(value) {
     })[character]);
 }
 
-// Load donor records from backend
+// Load donor records
 async function loadDashboard() {
 
     statusMessage.textContent = "Loading donor records...";
@@ -37,6 +37,10 @@ async function loadDashboard() {
         const response = await fetch(API_URL);
 
         if (!response.ok) {
+            if (response.status === 401 || response.status === 403) {
+                throw new Error("Please log in as admin again.");
+            }
+
             throw new Error("Could not load donor records.");
         }
 
@@ -52,14 +56,13 @@ async function loadDashboard() {
 
     } catch (error) {
 
-        statusMessage.textContent =
-            "Backend connection failed. Please start your server.";
+        statusMessage.textContent = error.message;
 
-        console.error(error);
+        console.error("Dashboard error:", error);
     }
 }
 
-// Update dashboard statistics
+// Update statistics
 function updateStatistics() {
 
     totalDonors.textContent = allDonors.length;
@@ -69,14 +72,16 @@ function updateStatistics() {
     );
 
     const locations = new Set(
-        allDonors.map(donor => donor.location.toLowerCase())
+        allDonors.map(donor =>
+            String(donor.location || "").toLowerCase()
+        )
     );
 
     totalGroups.textContent = groups.size;
     totalLocations.textContent = locations.size;
 }
 
-// Display donor table
+// Render donor table
 function renderDonors() {
 
     const search = searchInput.value.trim().toLowerCase();
@@ -85,8 +90,8 @@ function renderDonors() {
     const filteredDonors = allDonors.filter(donor => {
 
         const matchesSearch =
-            donor.name.toLowerCase().includes(search) ||
-            donor.location.toLowerCase().includes(search);
+            String(donor.name || "").toLowerCase().includes(search) ||
+            String(donor.location || "").toLowerCase().includes(search);
 
         const matchesBlood =
             !blood || donor.bloodGroup === blood;
@@ -94,37 +99,187 @@ function renderDonors() {
         return matchesSearch && matchesBlood;
     });
 
-    donorTable.innerHTML = filteredDonors.map(donor => `
+    if (filteredDonors.length === 0) {
 
-        <tr>
-            <td>
-                <span class="donor-name">
-                    ${escapeHTML(donor.name)}
-                </span>
-            </td>
+        donorTable.innerHTML = "";
+        emptyMessage.hidden = false;
 
-            <td>
-                <span class="blood-badge">
-                    ${escapeHTML(donor.bloodGroup)}
-                </span>
-            </td>
+        return;
+    }
 
-            <td>${escapeHTML(donor.location)}</td>
+    emptyMessage.hidden = true;
 
-            <td>${escapeHTML(donor.phone)}</td>
-        </tr>
+    donorTable.innerHTML = filteredDonors.map(donor => {
 
-    `).join("");
+        const status = donor.status || "Pending";
+        const statusClass = status.toLowerCase();
 
-    emptyMessage.hidden = filteredDonors.length !== 0;
+        let actionButtons = "";
+
+        if (status === "Pending") {
+
+            actionButtons = `
+                <button
+                    class="approve-btn"
+                    data-id="${Number(donor.id)}"
+                    data-status="Approved">
+                    Approve
+                </button>
+
+                <button
+                    class="reject-btn"
+                    data-id="${Number(donor.id)}"
+                    data-status="Deactivated">
+                    Reject
+                </button>
+            `;
+
+        } else if (status === "Approved") {
+
+            actionButtons = `
+                <button
+                    class="reject-btn"
+                    data-id="${Number(donor.id)}"
+                    data-status="Deactivated">
+                    Deactivate
+                </button>
+            `;
+
+        } else if (status === "Deactivated") {
+
+            actionButtons = `
+                <button
+                    class="approve-btn"
+                    data-id="${Number(donor.id)}"
+                    data-status="Approved">
+                    Reactivate
+                </button>
+            `;
+        }
+
+        return `
+            <tr>
+                <td>
+                    <span class="donor-name">
+                        ${escapeHTML(donor.name)}
+                    </span>
+                </td>
+
+                <td>
+                    <span class="blood-badge">
+                        ${escapeHTML(donor.bloodGroup)}
+                    </span>
+                </td>
+
+                <td>${escapeHTML(donor.location)}</td>
+
+                <td>${escapeHTML(donor.phone)}</td>
+
+                <td>
+                    <span class="status-badge ${escapeHTML(statusClass)}">
+                        ${escapeHTML(status)}
+                    </span>
+                </td>
+
+                <td>
+                    <div class="action-buttons">
+                        ${actionButtons}
+                    </div>
+                </td>
+            </tr>
+        `;
+
+    }).join("");
 }
 
-// Search and filter events
+// Handle approve, reject, deactivate and reactivate
+donorTable.addEventListener("click", async event => {
+
+    const button = event.target.closest("button[data-status]");
+
+    if (!button) return;
+
+    const donorId = button.dataset.id;
+    const newStatus = button.dataset.status;
+
+    const actionName = newStatus === "Approved"
+        ? "approve/reactivate"
+        : "deactivate";
+
+    const confirmed = confirm(
+        `Are you sure you want to ${actionName} this donor?`
+    );
+
+    if (!confirmed) return;
+
+    button.disabled = true;
+    statusMessage.textContent = "Updating donor status...";
+
+    try {
+
+        const response = await fetch(
+            `/api/donors/admin/${donorId}/status`,
+            {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    status: newStatus
+                })
+            }
+        );
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw new Error(
+                result.message || "Unable to update donor."
+            );
+        }
+
+        await loadDashboard();
+
+        statusMessage.textContent = result.message;
+
+    } catch (error) {
+
+        statusMessage.textContent = error.message;
+
+        console.error("Donor update error:", error);
+
+        button.disabled = false;
+    }
+});
+
+// Search and filter
 searchInput.addEventListener("input", renderDonors);
 bloodFilter.addEventListener("change", renderDonors);
 
 // Refresh dashboard
 refreshBtn.addEventListener("click", loadDashboard);
 
-// Load dashboard on page opening
+// Load dashboard when page opens
 loadDashboard();
+// Admin logout
+const logoutBtn = document.getElementById("logoutBtn");
+
+logoutBtn.addEventListener("click", async () => {
+    try {
+        const response = await fetch("/api/admin/logout", {
+            method: "POST",
+            credentials: "same-origin"
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw new Error(result.message || "Logout failed.");
+        }
+
+        window.location.replace("/admin-login.html");
+
+    } catch (error) {
+        alert(error.message);
+    }
+});
