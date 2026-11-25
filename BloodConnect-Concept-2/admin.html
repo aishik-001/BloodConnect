@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,6 +38,7 @@
             </div>
         </header>
 
+        <!-- Dashboard Statistics -->
         <section class="stats-grid">
 
             <div class="stat-card">
@@ -59,6 +61,7 @@
 
         </section>
 
+        <!-- Donor Management -->
         <section class="content-card">
 
             <div class="section-heading">
@@ -72,7 +75,11 @@
 
             <div class="filters">
 
-                <input type="text" id="searchInput" placeholder="Search name or location...">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search name or location..."
+                >
 
                 <select id="bloodFilter">
                     <option value="">All Blood Groups</option>
@@ -118,6 +125,49 @@
 
         </section>
 
+        <!-- Blood Requests -->
+        <section class="content-card">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Blood Requests</h2>
+                    <p>View blood requests submitted by users.</p>
+                </div>
+
+                <span class="live-label">● LIVE DATA</span>
+            </div>
+
+            <div class="table-container">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Requester</th>
+                            <th>Blood Group</th>
+                            <th>Location</th>
+                            <th>Units</th>
+                            <th>Message</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="requestTable">
+                    </tbody>
+                </table>
+
+            </div>
+
+            <p id="requestStatus" role="status">
+                Loading blood requests...
+            </p>
+
+            <p id="requestEmptyMessage" hidden>
+                No blood requests found.
+            </p>
+
+        </section>
+
         <footer>
             BloodConnect © 2026 | Student Project
         </footer>
@@ -127,5 +177,4 @@
     <script src="admin.js"></script>
 
 </body>
-
 </html>

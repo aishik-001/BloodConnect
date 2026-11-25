@@ -2,9 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const requireAdmin = require("../middleware/auth");
-
-// Temporary blood requests (will be replaced with MySQL later)
-let requests = [];
+const db = require("../config/db");
 
 const validBloodGroups = [
     "A+", "A-", "B+", "B-",
@@ -12,81 +10,105 @@ const validBloodGroups = [
 ];
 
 // POST: Submit a new blood request
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
+    try {
+        const {
+            requesterName,
+            bloodGroup,
+            location,
+            units,
+            message
+        } = req.body;
 
-    const {
-        requesterName,
-        bloodGroup,
-        location,
-        units,
-        message
-    } = req.body;
+        if (
+            typeof requesterName !== "string" ||
+            typeof location !== "string" ||
+            !requesterName.trim() ||
+            !location.trim() ||
+            !bloodGroup ||
+            units === undefined
+        ) {
+            return res.status(400).json({
+                success: false,
+                message: "Please fill in all required fields."
+            });
+        }
 
-    // Check required fields
-    if (
-        !requesterName ||
-        !bloodGroup ||
-        !location ||
-        units === undefined
-    ) {
-        return res.status(400).json({
+        if (!validBloodGroups.includes(bloodGroup)) {
+            return res.status(400).json({
+                success: false,
+                message: "Invalid blood group."
+            });
+        }
+
+        const unitCount = Number(units);
+
+        if (
+            !Number.isInteger(unitCount) ||
+            unitCount < 1 ||
+            unitCount > 20
+        ) {
+            return res.status(400).json({
+                success: false,
+                message: "Enter a valid number of units (1–20)."
+            });
+        }
+
+        const cleanMessage =
+            typeof message === "string" ? message.trim() : "";
+
+        const [result] = await db.execute(
+            `INSERT INTO blood_requests
+            (requesterName, bloodGroup, location, units, message, status)
+            VALUES (?, ?, ?, ?, ?, 'Pending')`,
+            [
+                requesterName.trim(),
+                bloodGroup,
+                location.trim(),
+                unitCount,
+                cleanMessage
+            ]
+        );
+
+        const [rows] = await db.execute(
+            "SELECT * FROM blood_requests WHERE id = ?",
+            [result.insertId]
+        );
+
+        res.status(201).json({
+            success: true,
+            message: "Blood request submitted successfully!",
+            request: rows[0]
+        });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
             success: false,
-            message: "Please fill in all required fields."
+            message: "Could not submit blood request."
         });
     }
-
-    // Validate blood group
-    if (!validBloodGroups.includes(bloodGroup)) {
-        return res.status(400).json({
-            success: false,
-            message: "Invalid blood group."
-        });
-    }
-
-    // Validate units
-    const unitCount = Number(units);
-
-    if (
-        !Number.isInteger(unitCount) ||
-        unitCount < 1 ||
-        unitCount > 20
-    ) {
-        return res.status(400).json({
-            success: false,
-            message: "Enter a valid number of units (1–20)."
-        });
-    }
-
-    // Create new request
-    const newRequest = {
-        id: requests.length
-            ? Math.max(...requests.map(request => request.id)) + 1
-            : 1,
-
-        requesterName: String(requesterName).trim(),
-        bloodGroup,
-        location: String(location).trim(),
-        units: unitCount,
-        message: message ? String(message).trim() : "",
-        status: "Pending",
-        createdAt: new Date().toISOString()
-    };
-
-    requests.push(newRequest);
-
-    res.status(201).json({
-        success: true,
-        message: "Blood request submitted successfully!",
-        request: newRequest
-    });
 });
 
 // GET: Admin-only access to all blood requests
-router.get("/admin/all", requireAdmin, (req, res) => {
-    res.json({
-        success: true,
-        requests: requests
-    });
+router.get("/admin/all", requireAdmin, async (req, res) => {
+    try {
+        const [requests] = await db.execute(
+            "SELECT * FROM blood_requests ORDER BY id DESC"
+        );
+
+        res.json({
+            success: true,
+            requests
+        });
+
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({
+            success: false,
+            message: "Could not fetch blood requests."
+        });
+    }
 });
 
 module.exports = router;

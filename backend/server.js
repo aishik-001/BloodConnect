@@ -74,6 +74,11 @@ app.get("/admin.html", requireAdmin, (req, res) => {
     res.sendFile(path.join(frontendPath, "admin.html"));
 });
 
+// Serve admin login page
+app.get("/admin-login.html", (req, res) => {
+    res.sendFile(path.join(frontendPath, "admin-login.html"));
+});
+
 // Serve frontend files
 app.use(express.static(frontendPath));
 

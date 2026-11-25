@@ -1,5 +1,6 @@
 
 const API_URL = "/api/donors/admin/all";
+const REQUEST_API_URL = "/api/requests/admin/all";
 
 const donorTable = document.getElementById("donorTable");
 const totalDonors = document.getElementById("totalDonors");
@@ -13,7 +14,12 @@ const statusMessage = document.getElementById("statusMessage");
 const emptyMessage = document.getElementById("emptyMessage");
 const refreshBtn = document.getElementById("refreshBtn");
 
+const requestTable = document.getElementById("requestTable");
+const requestStatus = document.getElementById("requestStatus");
+const requestEmptyMessage = document.getElementById("requestEmptyMessage");
+
 let allDonors = [];
+let allRequests = [];
 
 // Prevent HTML injection
 function escapeHTML(value) {
@@ -26,22 +32,19 @@ function escapeHTML(value) {
     })[character]);
 }
 
-// Load donor records
+// Load dashboard data
 async function loadDashboard() {
-
     statusMessage.textContent = "Loading donor records...";
     donorTable.innerHTML = "";
 
-    try {
+    requestStatus.textContent = "Loading blood requests...";
+    requestTable.innerHTML = "";
 
+    try {
         const response = await fetch(API_URL);
 
         if (!response.ok) {
-            if (response.status === 401 || response.status === 403) {
-                throw new Error("Please log in as admin again.");
-            }
-
-            throw new Error("Could not load donor records.");
+            throw new Error("Could not load donor records. Please log in again.");
         }
 
         const data = await response.json();
@@ -55,16 +58,16 @@ async function loadDashboard() {
             "Successfully connected to BloodConnect backend.";
 
     } catch (error) {
-
         statusMessage.textContent = error.message;
-
-        console.error("Dashboard error:", error);
+        console.error("Donor dashboard error:", error);
     }
+
+    // Load blood requests separately
+    await loadRequests();
 }
 
 // Update statistics
 function updateStatistics() {
-
     totalDonors.textContent = allDonors.length;
 
     const groups = new Set(
@@ -83,12 +86,10 @@ function updateStatistics() {
 
 // Render donor table
 function renderDonors() {
-
     const search = searchInput.value.trim().toLowerCase();
     const blood = bloodFilter.value;
 
     const filteredDonors = allDonors.filter(donor => {
-
         const matchesSearch =
             String(donor.name || "").toLowerCase().includes(search) ||
             String(donor.location || "").toLowerCase().includes(search);
@@ -100,24 +101,20 @@ function renderDonors() {
     });
 
     if (filteredDonors.length === 0) {
-
         donorTable.innerHTML = "";
         emptyMessage.hidden = false;
-
         return;
     }
 
     emptyMessage.hidden = true;
 
     donorTable.innerHTML = filteredDonors.map(donor => {
-
         const status = donor.status || "Pending";
         const statusClass = status.toLowerCase();
 
         let actionButtons = "";
 
         if (status === "Pending") {
-
             actionButtons = `
                 <button
                     class="approve-btn"
@@ -133,9 +130,7 @@ function renderDonors() {
                     Reject
                 </button>
             `;
-
         } else if (status === "Approved") {
-
             actionButtons = `
                 <button
                     class="reject-btn"
@@ -144,9 +139,7 @@ function renderDonors() {
                     Deactivate
                 </button>
             `;
-
         } else if (status === "Deactivated") {
-
             actionButtons = `
                 <button
                     class="approve-btn"
@@ -172,7 +165,6 @@ function renderDonors() {
                 </td>
 
                 <td>${escapeHTML(donor.location)}</td>
-
                 <td>${escapeHTML(donor.phone)}</td>
 
                 <td>
@@ -188,13 +180,82 @@ function renderDonors() {
                 </td>
             </tr>
         `;
-
     }).join("");
 }
 
-// Handle approve, reject, deactivate and reactivate
-donorTable.addEventListener("click", async event => {
+// Load blood requests from MySQL
+async function loadRequests() {
+    requestStatus.textContent = "Loading blood requests...";
 
+    try {
+        const response = await fetch(REQUEST_API_URL);
+
+        if (!response.ok) {
+            throw new Error("Could not load blood requests.");
+        }
+
+        const data = await response.json();
+
+        allRequests = data.requests || [];
+
+        renderRequests();
+
+        requestStatus.textContent =
+            "Successfully loaded blood requests from MySQL.";
+
+    } catch (error) {
+        requestStatus.textContent = error.message;
+        console.error("Blood request error:", error);
+    }
+}
+
+// Render blood requests
+function renderRequests() {
+    if (allRequests.length === 0) {
+        requestTable.innerHTML = "";
+        requestEmptyMessage.hidden = false;
+        return;
+    }
+
+    requestEmptyMessage.hidden = true;
+
+    requestTable.innerHTML = allRequests.map(request => {
+        const status = request.status || "Pending";
+
+        const date = request.createdAt
+            ? new Date(request.createdAt).toLocaleString()
+            : "Not available";
+
+        return `
+            <tr>
+                <td>${escapeHTML(request.requesterName)}</td>
+
+                <td>
+                    <span class="blood-badge">
+                        ${escapeHTML(request.bloodGroup)}
+                    </span>
+                </td>
+
+                <td>${escapeHTML(request.location)}</td>
+
+                <td>${escapeHTML(request.units)}</td>
+
+                <td>${escapeHTML(request.message || "No message")}</td>
+
+                <td>
+                    <span class="status-badge ${escapeHTML(status.toLowerCase())}">
+                        ${escapeHTML(status)}
+                    </span>
+                </td>
+
+                <td>${escapeHTML(date)}</td>
+            </tr>
+        `;
+    }).join("");
+}
+
+// Handle donor approval and deactivation
+donorTable.addEventListener("click", async event => {
     const button = event.target.closest("button[data-status]");
 
     if (!button) return;
@@ -216,7 +277,6 @@ donorTable.addEventListener("click", async event => {
     statusMessage.textContent = "Updating donor status...";
 
     try {
-
         const response = await fetch(
             `/api/donors/admin/${donorId}/status`,
             {
@@ -233,9 +293,7 @@ donorTable.addEventListener("click", async event => {
         const result = await response.json();
 
         if (!response.ok) {
-            throw new Error(
-                result.message || "Unable to update donor."
-            );
+            throw new Error(result.message || "Unable to update donor.");
         }
 
         await loadDashboard();
@@ -243,9 +301,7 @@ donorTable.addEventListener("click", async event => {
         statusMessage.textContent = result.message;
 
     } catch (error) {
-
         statusMessage.textContent = error.message;
-
         console.error("Donor update error:", error);
 
         button.disabled = false;
@@ -259,8 +315,6 @@ bloodFilter.addEventListener("change", renderDonors);
 // Refresh dashboard
 refreshBtn.addEventListener("click", loadDashboard);
 
-// Load dashboard when page opens
-loadDashboard();
 // Admin logout
 const logoutBtn = document.getElementById("logoutBtn");
 
@@ -283,3 +337,6 @@ logoutBtn.addEventListener("click", async () => {
         alert(error.message);
     }
 });
+
+// Load dashboard when page opens
+loadDashboard();
